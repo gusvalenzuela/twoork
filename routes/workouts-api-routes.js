@@ -8,20 +8,23 @@ var mongoose = require("mongoose");
 module.exports = function (app) {
   // B
   app.get(`/api/workouts`, (req, res) => {
-    db.Workout.find(
-      {},
-      (err, result) => (err ? res.send(err) : res.send(result))
+    db.Workout.find({}, (err, result) =>
+      err ? res.send(err) : res.send(result)
     );
   });
 
   app.put("/api/workouts/:id", ({ body, params }, res) => {
-
-    console.log(body)
     db.Workout.update(
       { _id: mongoose.Types.ObjectId(params.id) },
       { $push: { exercises: body } },
       (err, result) => (err ? res.send(err) : res.send(result))
     );
+  });
+  app.post("/api/workouts/", ({ body, params }, res) => {
+    console.log(body);
+    db.Workout.create(body, (err, result) => {
+      err ? res.send(err) : res.send(result);
+    });
   });
 
   app.delete(`/api/exercise/:id`, function (req, res) {
