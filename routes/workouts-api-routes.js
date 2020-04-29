@@ -20,7 +20,7 @@ module.exports = function (app) {
       (err, result) => (err ? res.send(err) : res.send(result))
     );
   });
-  app.post("/api/workouts/", ({ body, params }, res) => {
+  app.post("/api/workouts/", ({ body}, res) => {
     console.log(body);
     db.Workout.create(body, (err, result) => {
       err ? res.send(err) : res.send(result);
