@@ -1,4 +1,8 @@
-<li>Type: {{type}}</li>
-<li>Exercise: {{name}}</li>
-<li>Duration: {{duration}}</li>
-<li>Distance: {{distance}}</li>
+{{#exercises}}
+{{#if cardio}}
+<li>{{name}}: {{distance}} miles ({{duration}} minutes)</li>
+{{!-- <br> --}}
+{{else}}
+<li>{{name}} ({{weight}}lbs): {{reps}} reps for {{sets}} sets. ({{duration}} min)</li>
+{{/if}}
+{{/exercises}}

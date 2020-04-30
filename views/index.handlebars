@@ -2,20 +2,11 @@
   <header>
     <h1>Fitness Tracker</h1>
   </header>
-  <div class="container recent-workouts">
-    {{#each workout}}
-    {{#each this}}
-    {{#if day}}
-    Workout for: {{day}}<br>   {{!-- {{/this}} --}}
-    {{/if}}
-    {{!-- {{#this}} --}}
-    {{/each}}
-    {{/each}}
-  </div>
+  {{!-- last workout container  --}}
   <div class="ui container workout">
     <div class="ui raised card m-auto">
       <div class="prev-workout">
-        <h3>Last Workout</h3>
+        <h3>Active Workout</h3>
         <div>
           <div class="workout-stats"></div>
           <div class="buttons">
@@ -29,11 +20,46 @@
       </div>
     </div>
   </div>
+
+  {{!-- recent workouts container  --}}
+  <div class="container recent-workouts">
+    {{#each workout}}
+    {{!-- next each (this) loops through each object in workout array --}}
+    {{#each this}}
+    {{#if day}}
+    <h5 class="workout-day">{{day}}</h5>
+    <ul>
+      {{> exercises/exercise-block}}
+    </ul>
+    {{/if}}
+    {{!-- {{#this}} --}}
+    {{/each}}
+    {{/each}}
+  </div>
+
 </div>
-</div>
+
 <div id="toast">
   Workout Added Successfully!
 </div>
 <script src="./assets/js/api.js"></script>
 <script src="./assets/js/workout.js"></script>
 <script src="./assets/js/index.js"></script>
+<script src="moment.js"></script>
+<script>
+  const formatDates = () => {
+    $(`.workout-day`).each((i, thing) => {
+      let dateVal = new Date($(thing)[0].textContent)
+      $(thing).text(moment(dateVal).calendar(null,{
+        sameDay: '[Earlier Today @] h:mm a',
+        nextDay: '[Manana]',
+        nextWeek: 'dddd',
+        lastDay: '[Yesterday @] h:mm a',
+        lastWeek: '[Last] dddd',
+        sameElse: 'MM/DD @ h:mm a'
+      }))
+    })
+  }
+
+  formatDates()
+</script>

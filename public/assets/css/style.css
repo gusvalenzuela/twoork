@@ -40,8 +40,8 @@ a:visited {
 }
 
 header {
-  height: 150px;
-  padding-top: 80px;
+  height: auto;
+  padding: 1rem;
   text-align: center;
   font-size: 1.5rem;
 }
@@ -151,6 +151,10 @@ form::after {
 
 .exercise .buttons button {
   width: 100%;
+}
+.workout-stats{
+  text-align: left;
+  padding: 1rem;
 }
 
 button {
@@ -442,6 +446,18 @@ form > button {
   }
 }
 
+.recent-workouts{
+  text-align: center;
+  margin: 1rem;
+  padding: 1rem;
+}
+.recent-workouts li{
+  text-align: left;
+  list-style: inside square;
+}
+.workout-day{
+  font-weight: 800;
+}
 .footer{
   background: #5793fd;
   padding: 1rem 1rem 3rem;

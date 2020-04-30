@@ -1,6 +1,7 @@
 // Requiring our models
 const db = require(`../models`);
-const mongoose = require("mongoose");
+const moment = require(`moment`);
+// const mongoose = require("mongoose");
 // const utils = require("../utils/utils")
 
 // Routes
@@ -12,7 +13,10 @@ module.exports = function (app) {
     db.Workout.find({})
       .sort({ day: -1 })
       .then((workout) => {
-        console.log(workout)
+        workout.forEach((i) => {
+          i.poop = `poop`;
+        });
+        // console.log(workout.json())
         res.render(`index`, { workout: workout });
       })
       .catch((err) => {
