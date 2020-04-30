@@ -8,9 +8,9 @@ const mongoose = require("mongoose");
 module.exports = function (app) {
   // B
   app.get(`/api/workouts`, (req, res) => {
-    db.Workout.find({}, (err, result) =>
-      err ? res.send(err) : res.send(result)
-    );
+    db.Workout.find({}, (err, result) => {
+      err ? res.send(err) : res.send(result);
+    });
   });
 
   app.get(`/api/workourts/aggregate/:value`, (req, res) => {
@@ -41,12 +41,16 @@ module.exports = function (app) {
   });
 
   app.put("/api/workouts/:id", ({ body, params }, res) => {
-    db.Workout.update(
+    
+    console.log(`body as it's going into mongoose update`, body);
+
+    db.Workout.updateOne(
       { _id: mongoose.Types.ObjectId(params.id) },
       { $push: { exercises: body } },
       (err, result) => (err ? res.send(err) : res.send(result))
     );
   });
+
   app.post("/api/workouts/", ({ body }, res) => {
     console.log(body);
     db.Workout.create(body, (err, result) => {

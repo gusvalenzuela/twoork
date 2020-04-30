@@ -31,34 +31,8 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/twoorkdb", {
   useNewUrlParser: true,
 });
 
-// Basic route that sends the user first to the AJAX Page
-app.get(`/`, (req, res) => {
-  // res.send()
-  res.render(`index`);
-});
-app.get(`/exercise`, (req, res) => {
-  // res.send()
-  res.render(`exercise`);
-});
-app.get(`/stats`, (req, res) => {
-  // res.send()
-  res.render(`stats`);
-});
-
+require(`./routes/html-api-routes`)(app)
 require(`./routes/workouts-api-routes`)(app)
-
-
-
-app.get(`/test`, (req, res) => {
-  db.Project.find({})
-    .sort({ dateEntered: -1 })
-    .then((projects) => {
-      res.render(`test`, { projects: projects, test: `testing transmission` });
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
 
 app.listen(PORT, () => {
   console.log(`\r\n${`*`.repeat(16)}\r\n[Twoork App] listening on {localhost:${PORT}}...\r\n${`*`.repeat(16)}`);

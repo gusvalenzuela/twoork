@@ -8,7 +8,13 @@ const WorkoutSchema = new Schema({
     default: Date.now(),
   },
   exercises: {
-    type: { type: String },
+    type: {
+      type: String,
+    },
+    cardio: {
+      type: Boolean,
+      // default: false,
+    },
     name: String,
     duration: Number,
     distance: Number,

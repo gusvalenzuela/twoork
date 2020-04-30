@@ -2,6 +2,23 @@
     <header>
         <h1>Fitness Tracker</h1>
     </header>
+    <div class="container workout-summary">
+        <h3>Workout for: {{day}}</h3>
+
+
+        {{#each exercises}}
+        {{#if cardio}}
+        {{name}}
+        {{duration}}
+        Weight: {{weight}}
+        {{!-- <ul>
+            {{> exercises/exercise-block}}
+
+        </ul> --}}
+        {{/if}}
+        {{/each}}
+
+    </div>
     <div class="ui container exercise">
         <div class="ui raised card m-auto">
             <h2>Add Your Exercise</h2>
@@ -63,7 +80,7 @@
     </div>
 </div>
 <div id="toast">
-    Workout Added Successfully!
+    Exercise Added Successfully!
 </div>
 <script src="/assets/js/api.js"></script>
 <script src="/assets/js/exercise.js"></script>

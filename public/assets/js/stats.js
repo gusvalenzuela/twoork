@@ -163,7 +163,7 @@ function populateChart(data) {
       labels: workouts,
       datasets: [
         {
-          label: "Excercises Performed",
+          label: "Exercises Performed (by Weight)",
           backgroundColor: colors,
           data: pounds,
         },
@@ -172,7 +172,7 @@ function populateChart(data) {
     options: {
       title: {
         display: true,
-        text: "Excercises Performed",
+        text: "Exercises Performed (by Total Weight)",
       },
     },
   });

@@ -12,6 +12,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "resistance",
+        cardio: false,
         name: "Bicep Curl",
         duration: 20,
         weight: 100,
@@ -25,6 +26,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "resistance",
+        cardio: false,
         name: "Lateral Pull",
         duration: 20,
         weight: 300,
@@ -38,6 +40,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "resistance",
+        cardio: false,
         name: "Push Press",
         duration: 25,
         weight: 185,
@@ -51,6 +54,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "cardio",
+        cardio: true,
         name: "Running",
         duration: 25,
         distance: 4
@@ -62,6 +66,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "resistance",
+        cardio: false,
         name: "Bench Press",
         duration: 20,
         weight: 285,
@@ -75,6 +80,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "resistance",
+        cardio: false,
         name: "Bench Press",
         duration: 20,
         weight: 300,
@@ -88,6 +94,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "resistance",
+        cardio: false,
         name: "Quad Press",
         duration: 30,
         weight: 300,
@@ -101,6 +108,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "resistance",
+        cardio: false,
         name: "Bench Press",
         duration: 20,
         weight: 300,
@@ -114,6 +122,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "resistance",
+        cardio: false,
         name: "Military Press",
         duration: 20,
         weight: 300,
@@ -127,6 +136,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "cardio",
+        cardio: true,
         name: "Walking",
         duration: 25,
         distance: 2

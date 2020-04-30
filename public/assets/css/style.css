@@ -17,12 +17,18 @@ body {
 }
 
 nav {
-  background-color: #5793fd;
-  color: #ffffff;
+  background-color: #b38300;
+  color: #000000;
   height: 80px;
   padding: 10px;
   line-height: 3;
   font-size: 1.2rem;
+}
+nav a{
+  padding: 1rem .5rem;
+}
+nav a:hover{
+  color: #ffffffff;
 }
 
 a,
