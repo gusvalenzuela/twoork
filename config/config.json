@@ -1,8 +1,8 @@
 {
 	"development": {
 		"username": "root",
-		"password": "marksql#15",
-		"database": "artgarden",
+		"password": "root",
+		"database": "twoorkdb",
 		"host": "127.0.0.1",
 		"dialect": "mysql",
 		"operatorsAliases": 0

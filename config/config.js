@@ -2,7 +2,7 @@ module.exports = {
   "development": {
     "username": "root",
     "password": "root",
-    "database": "artgarden",
+    "database": "twoorkdb",
     "host": "localhost",
     "dialect": "mysql",
   },

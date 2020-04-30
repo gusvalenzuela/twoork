@@ -13,6 +13,27 @@ module.exports = function (app) {
     );
   });
 
+  app.get(`/api/workouts/range`, (req, res) => {
+
+    db.Workout.aggregate([
+      // match in a date range?
+      // { $match: {
+      //     _id: null
+      // }},
+      { $unwind: "$exercises" },
+      { $group: {
+          "_id": "$exercises.name",
+           totalduration: { $sum: "$exercises.duration"  },
+           totalreps: { $sum: "$exercises.reps"  },
+           totaldistance: { $sum: "$exercises.distance"  },
+           totalweight: { $sum: "$exercises.weight"  },
+          //  totalreps: { $sum: "$exercises.reps"  },
+      }}
+  ], (err, result) =>
+      err ? res.send(err) : res.send(result)
+    );
+  });
+
   app.put("/api/workouts/:id", ({ body, params }, res) => {
     db.Workout.update(
       { _id: mongoose.Types.ObjectId(params.id) },
