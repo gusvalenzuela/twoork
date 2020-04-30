@@ -1,6 +1,6 @@
 // Requiring our models
 const db = require(`../models`);
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 // const utils = require("../utils/utils")
 
 // Routes
@@ -13,24 +13,30 @@ module.exports = function (app) {
     );
   });
 
-  app.get(`/api/workouts/range`, (req, res) => {
+  app.get(`/api/workourts/aggregate/:value`, (req, res) => {
+    reqvalue = `$exercises.${req.params.value}`;
 
-    db.Workout.aggregate([
-      // match in a date range?
-      // { $match: {
-      //     _id: null
-      // }},
-      { $unwind: "$exercises" },
-      { $group: {
-          "_id": "$exercises.name",
-           totalduration: { $sum: "$exercises.duration"  },
-           totalreps: { $sum: "$exercises.reps"  },
-           totaldistance: { $sum: "$exercises.distance"  },
-           totalweight: { $sum: "$exercises.weight"  },
-          //  totalreps: { $sum: "$exercises.reps"  },
-      }}
-  ], (err, result) =>
-      err ? res.send(err) : res.send(result)
+    db.Workout.aggregate(
+      [
+        // match in a date range?
+        // { $match: {
+        //     _id: null
+        // }},
+        { $unwind: "$exercises" },
+        {
+          $group: {
+            _id: reqvalue,
+            totalduration: { $sum: "$exercises.duration" },
+            totalreps: { $sum: "$exercises.reps" },
+            totaldistance: { $sum: "$exercises.distance" },
+            totalweight: { $sum: "$exercises.weight" },
+            //  totalreps: { $sum: "$exercises.reps"  },
+          },
+        },
+      ],
+      (err, result) => {
+        err ? res.send(err) : res.send(result);
+      }
     );
   });
 
@@ -41,7 +47,7 @@ module.exports = function (app) {
       (err, result) => (err ? res.send(err) : res.send(result))
     );
   });
-  app.post("/api/workouts/", ({ body}, res) => {
+  app.post("/api/workouts/", ({ body }, res) => {
     console.log(body);
     db.Workout.create(body, (err, result) => {
       err ? res.send(err) : res.send(result);
