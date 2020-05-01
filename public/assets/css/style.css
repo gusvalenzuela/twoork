@@ -6,8 +6,6 @@
   padding: 0;
 }
 
-html,
-body,
 .wrapper {
   height: 100%;
 }
@@ -16,7 +14,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.disable-click{
+.disable-click {
   pointer-events: none;
 }
 
@@ -28,10 +26,10 @@ nav {
   line-height: 3;
   font-size: 1.2rem;
 }
-nav a{
-  padding: 1rem .5rem;
+nav a {
+  padding: 1rem 0.5rem;
 }
-nav a:hover{
+nav a:hover {
   color: #ffffffff;
 }
 
@@ -156,7 +154,7 @@ form::after {
 .exercise .buttons button {
   width: 100%;
 }
-.workout-stats{
+.workout-stats {
   text-align: left;
   padding: 1rem;
 }
@@ -450,19 +448,34 @@ form > button {
   }
 }
 
-.recent-workouts{
+.recent-workouts {
   text-align: center;
   margin: 1rem;
   padding: 1rem;
 }
-.recent-workouts li{
+.recent-workouts li {
   text-align: left;
   list-style: inside square;
 }
-.workout-day{
+.workout-day {
   font-weight: 800;
 }
-.footer{
-  background: #5793fd;
-  padding: 1rem 1rem 3rem;
+
+.footer {
+  background: #000000;
+  color: #b38300;
+  box-shadow: 0 -5px 5px -5px rgb(0, 0, 0);
+  padding: 1em 1em 2.25em;
+  height: 5.063rem;
+  margin-top: auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  z-index: 99;
 }
