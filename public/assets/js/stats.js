@@ -9,11 +9,10 @@ fetch("/api/workourts/aggregate/" + groupByThis)
     return response.json();
   })
   .then((data) => {
-    console.log(`the exercises aggregate response:`, data);
     populateChart(data);
   });
 
-API.getWorkoutsInRange(groupByThis);
+// API.getWorkoutsInRange(groupByThis);
 
 function generatePalette() {
   const arr = [
@@ -42,10 +41,6 @@ function populateChart(data) {
   let pounds = calculateTotalWeight(data);
   let workouts = workoutNames(data);
   const colors = generatePalette();
-
-  console.log(`durations`, durations);
-  console.log(`pounds`, pounds);
-  console.log(`Workout Names`, workouts);
 
   let line = document.querySelector("#canvas").getContext("2d");
   let bar = document.querySelector("#canvas2").getContext("2d");

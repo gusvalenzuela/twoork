@@ -1,0 +1,17 @@
+<button type="button" id="populate-button">
+    Populate from seed
+</button>
+<script>
+    $(document).on(`ready`, () => {
+
+
+        $(`#populate-button`).on(`click`, evt => {
+            console.log(`clicks`)
+
+            $.post(`/test`, (response) => {
+                window.location.href = '/'
+            })
+        })
+
+    })
+</script>

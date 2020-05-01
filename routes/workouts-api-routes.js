@@ -41,9 +41,6 @@ module.exports = function (app) {
   });
 
   app.put("/api/workouts/:id", ({ body, params }, res) => {
-    
-    console.log(`body as it's going into mongoose update`, body);
-
     db.Workout.updateOne(
       { _id: mongoose.Types.ObjectId(params.id) },
       { $push: { exercises: body } },
@@ -52,11 +49,12 @@ module.exports = function (app) {
   });
 
   app.post("/api/workouts/", ({ body }, res) => {
-    console.log(body);
     db.Workout.create(body, (err, result) => {
       err ? res.send(err) : res.send(result);
     });
   });
+
+  
 
   app.delete(`/api/exercise/:id`, function (req, res) {
     // We just have to specify which request we want to destroy with `where`

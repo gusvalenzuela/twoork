@@ -48,7 +48,7 @@
 <script src="moment.js"></script>
 <script>
   const formatDates = () => {
-    $(`.workout-day`).each((i, thing) => {
+    $(`.workout-day`).each((index, thing) => {
       let dateVal = new Date($(thing)[0].textContent)
       $(thing).text(moment(dateVal).calendar(null,{
         sameDay: '[Earlier Today @] h:mm a',
