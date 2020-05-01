@@ -25,7 +25,7 @@ module.exports = function (app) {
   });
   app.get(`/exercise`, (req, res) => {
     // res.send()
-    db.Workout.findOne({})
+    db.Workout.find({})
       .sort({ day: -1 })
       .then((workout) => {
         res.render(`exercise`, {

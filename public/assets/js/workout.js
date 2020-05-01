@@ -68,7 +68,9 @@ function renderWorkoutSummary(summary) {
     const strong = document.createElement("strong");
 
     strong.textContent = workoutKeyMap[key].split(`;`)[0];
-    const textNode = document.createTextNode(`: ${summary[key]} ${workoutKeyMap[key].split(`;`)[1]}`);
+    const textNode = document.createTextNode(
+      `: ${summary[key]} ${workoutKeyMap[key].split(`;`)[1]}`
+    );
 
     p.appendChild(strong);
     p.appendChild(textNode);
@@ -85,6 +87,7 @@ function renderNoWorkoutText() {
 
   p.appendChild(strong);
   container.appendChild(p);
+ 
 }
 
 initWorkout();

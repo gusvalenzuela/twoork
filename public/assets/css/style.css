@@ -16,6 +16,10 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.disable-click{
+  pointer-events: none;
+}
+
 nav {
   background-color: #b38300;
   color: #000000;
