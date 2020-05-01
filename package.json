@@ -16,10 +16,10 @@
     "express": "^4.16.3",
     "express-handlebars": "^4.0.4",
     "moment": "^2.24.0",
-    "mongoose": "^5.3.16"
+    "mongoose": "^5.3.16",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "morgan": "^1.10.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   }
