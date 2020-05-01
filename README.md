@@ -7,4 +7,4 @@ A workout planner. by Gus Valenzuela
 
 
 ### Use:
-- via browser: twoork.herokuapp.com
+- via browser: https://twoork.herokuapp.com
