@@ -25,7 +25,7 @@ app.engine(`handlebars`, exphbs({ defaultLayout: `main` }));
 app.set(`view engine`, `handlebars`);
 
 //Set Mongoose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/twoorkdb", {
+mongoose.connect(process.env.MONGODB_URX || "mongodb://localhost/twoorkdb", {
   useNewUrlParser: true,
 });
 
